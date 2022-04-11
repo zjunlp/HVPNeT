@@ -107,7 +107,7 @@ Acknowledgement
 
 The acquisition of Twitter15 and Twitter17 data refer to the code from [UMT](https://github.com/jefferyYu/UMT/), many thanks.
 
-The acquisition of MNRE data for multimodal relation extraction task refer to the code from [MEGA](https://github.com/thecharm/MNRE) and [MNRE](https://github.com/thecharm/MNRE), many thanks.
+The acquisition of MNRE data for multimodal relation extraction task refer to the code from [MEGA](https://github.com/thecharm/Mega), many thanks.
 
 Papers for the Project & How to Cite
 ==========
