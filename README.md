@@ -30,9 +30,8 @@ The datasets that we used in our experiments are as follows:
 
 + MNER
     
-    The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE), many thanks.
-
-    You can download the MRE dataset with detected visual objects using folloing command:
+    The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE) and you can download the MRE dataset with detected visual objects using folloing    
+    command:
     ```bash
     cd data
     wget 120.27.214.45/Data/re/multimodal/data.tar.gz
