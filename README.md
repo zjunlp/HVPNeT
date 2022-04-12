@@ -90,7 +90,7 @@ bash run_twitter15.sh
 bash run_twitter17.sh
 ```
 
-checkpoints can be download via [Twitter15_ckpt](), [Twitter17_ckpt]().
+checkpoints can be download via [Twitter15_ckpt](), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing).
 
 ## RE Task
 
@@ -99,7 +99,7 @@ To train re model, run this script.
 ```shell
 bash run_re_task.sh
 ```
-checkpoints can be download via [re_ckpt]()
+checkpoints can be download via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing)
 
 Acknowledgement
 ==========
