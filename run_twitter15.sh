@@ -11,6 +11,8 @@
 DATASET_NAME="twitter15"
 BERT_NAME="bert-base-uncased"
 
+lr=3e-5
+
 CUDA_VISIBLE_DEVICES=0 python -u run.py \
         --dataset_name=${DATASET_NAME} \
         --bert_name=${BERT_NAME} \
@@ -22,7 +24,7 @@ CUDA_VISIBLE_DEVICES=0 python -u run.py \
         --seed=1234 \
         --do_train \
         --ignore_idx=0 \
-        --max_seq=128 \
+        --max_seq=80 \
         --use_prompt \
         --prompt_len=4 \
         --sample_ratio=1.0 \
