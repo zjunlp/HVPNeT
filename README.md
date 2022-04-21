@@ -24,7 +24,7 @@ The datasets that we used in our experiments are as follows:
 
 + Twitter2015 & Twitter2017
     
-    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/1LrTX2fVj6emcguwm5NUSRBiMjQRSKq4_/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
+    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/16wteispCkZk8eydBE8F2XEUW0bjYInaS/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
 
     You can also put them anywhere and modify the path configuration in `run.py`
 
@@ -90,7 +90,7 @@ bash run_twitter15.sh
 bash run_twitter17.sh
 ```
 
-<!-- checkpoints can be download via [Twitter15_ckpt](), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing). -->
+checkpoints can be download via [Twitter15_ckpt](https://drive.google.com/file/d/1E6ed_V2aGAPLExYAF3C3G8j8Td0v-7BM/view?usp=sharing), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing).
 
 ## RE Task
 
@@ -99,7 +99,7 @@ To train re model, run this script.
 ```shell
 bash run_re_task.sh
 ```
-<!-- checkpoints can be download via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing) -->
+checkpoints can be download via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing)
 
 Acknowledgement
 ==========
