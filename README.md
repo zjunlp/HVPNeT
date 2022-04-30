@@ -24,7 +24,7 @@ The datasets that we used in our experiments are as follows:
 
 + Twitter2015 & Twitter2017
     
-    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/16wteispCkZk8eydBE8F2XEUW0bjYInaS/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
+    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/1qAWrV9IaiBadICFb7mAreXy3llao_teZ/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
 
     You can also put them anywhere and modify the path configuration in `run.py`
 
