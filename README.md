@@ -101,6 +101,44 @@ bash run_re_task.sh
 ```
 checkpoints can be download via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing)
 
+Test
+==========
+## NER Task
+
+To test ner model, you can download the model chekpoints we provide via [Twitter15_ckpt](https://drive.google.com/file/d/1E6ed_V2aGAPLExYAF3C3G8j8Td0v-7BM/view?usp=sharing), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing) or use your own tained model and set `load_path` to the model path, then run following script:
+
+```shell
+python -u run.py \
+      --dataset_name="twitter15/twitter17" \
+      --bert_name="bert-base-uncased" \
+      --seed=1234 \
+      --only_test \
+      --max_seq=80 \
+      --use_prompt \
+      --prompt_len=4 \
+      --sample_ratio=1.0 \
+      --load_path='your_ner_ckpt_path'
+
+```
+
+## RE Task
+
+To test re model, you can download the model chekpoints we provide via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing) or use your own tained model and set `load_path` to the model path, then run following script:
+
+```shell
+python -u run.py \
+      --dataset_name="MRE" \
+      --bert_name="bert-base-uncased" \
+      --seed=1234 \
+      --only_test \
+      --max_seq=80 \
+      --use_prompt \
+      --prompt_len=4 \
+      --sample_ratio=1.0 \
+      --load_path='your_re_ckpt_path'
+
+```
+
 Acknowledgement
 ==========
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DATASET_NAME="MRE"
-BERT_NAME="/data/lilei/package/Pretrained_models/bert-base-uncased"
+BERT_NAME="bert-base-uncased"
 
 CUDA_VISIBLE_DEVICES=2 python -u run.py \
         --dataset_name=${DATASET_NAME} \

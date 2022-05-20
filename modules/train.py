@@ -85,7 +85,6 @@ class RETrainer(BaseTrainer):
 
                 if epoch >= self.args.eval_begin_epoch:
                     self.evaluate(epoch)   # generator to dev.
-                    self.test(epoch)
             
             pbar.close()
             self.pbar = None
@@ -137,7 +136,7 @@ class RETrainer(BaseTrainer):
 
         self.model.train()
 
-    def test(self, epoch):
+    def test(self):
         self.model.eval()
         self.logger.info("\n***** Running testing *****")
         self.logger.info("  Num instance = %d", len(self.test_data)*self.args.batch_size)
@@ -169,15 +168,11 @@ class RETrainer(BaseTrainer):
                 result = eval_result(true_labels, pred_labels, self.re_dict, self.logger)
                 acc, micro_f1 = round(result['acc']*100, 4), round(result['micro_f1']*100, 4)
                 if self.writer:
-                    self.writer.add_scalar(tag='test_acc', scalar_value=acc, global_step=epoch)    # tensorbordx
-                    self.writer.add_scalar(tag='test_f1', scalar_value=micro_f1, global_step=epoch)    # tensorbordx
-                    self.writer.add_scalar(tag='test_loss', scalar_value=total_loss/len(self.test_data), global_step=epoch)    # tensorbordx
+                    self.writer.add_scalar(tag='test_acc', scalar_value=acc)    # tensorbordx
+                    self.writer.add_scalar(tag='test_f1', scalar_value=micro_f1)    # tensorbordx
+                    self.writer.add_scalar(tag='test_loss', scalar_value=total_loss/len(self.test_data))    # tensorbordx
                 total_loss = 0
-                self.logger.info("Epoch {}/{}, best test f1: {}, best epoch: {}, current test f1 score: {}, acc: {}"\
-                            .format(epoch, self.args.num_epochs, self.best_test_metric, self.best_test_epoch, micro_f1, acc))
-                if micro_f1 >= self.best_test_metric:  # this epoch get best performance
-                    self.best_test_metric = micro_f1
-                    self.best_test_epoch = epoch
+                self.logger.info("Test f1 score: {}, acc: {}.".format(micro_f1, acc))
                     
         self.model.train()
         
@@ -334,7 +329,6 @@ class NERTrainer(BaseTrainer):
 
                 if epoch >= self.args.eval_begin_epoch:
                     self.evaluate(epoch)   # generator to dev.
-                    self.test(epoch)
 
             torch.cuda.empty_cache()
             
@@ -403,7 +397,7 @@ class NERTrainer(BaseTrainer):
 
         self.model.train()
 
-    def test(self, epoch):
+    def test(self):
         self.model.eval()
         self.logger.info("\n***** Running testing *****")
         self.logger.info("  Num instance = %d", len(self.test_data)*self.args.batch_size)
@@ -452,14 +446,10 @@ class NERTrainer(BaseTrainer):
                 self.logger.info("\n%s", results)
                 f1_score = float(results.split('\n')[-4].split('      ')[-2].split('    ')[-1])
                 if self.writer:
-                    self.writer.add_scalar(tag='test_f1', scalar_value=f1_score, global_step=epoch)    # tensorbordx
-                    self.writer.add_scalar(tag='test_loss', scalar_value=total_loss/len(self.test_data), global_step=epoch)    # tensorbordx
+                    self.writer.add_scalar(tag='test_f1', scalar_value=f1_score)    # tensorbordx
+                    self.writer.add_scalar(tag='test_loss', scalar_value=total_loss/len(self.test_data))    # tensorbordx
                 total_loss = 0
-                self.logger.info("Epoch {}/{}, best test f1: {}, best epoch: {}, current test f1 score: {}."\
-                            .format(epoch, self.args.num_epochs, self.best_test_metric, self.best_test_epoch, f1_score))
-                if f1_score >= self.best_test_metric:  # this epoch get best performance
-                    self.best_test_metric = f1_score
-                    self.best_test_epoch = epoch
+                self.logger.info("Test f1 score: {}.".format(f1_score))
                     
         self.model.train()
         

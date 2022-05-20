@@ -134,8 +134,7 @@ def main():
     parser.add_argument('--notes', default="", type=str, help="input some remarks for making save path dir.")
     parser.add_argument('--use_prompt', action='store_true')
     parser.add_argument('--do_train', action='store_true')
-    parser.add_argument('--do_test', action='store_true')
-    parser.add_argument('--do_predict', action='store_true')
+    parser.add_argument('--only_test', action='store_true')
     parser.add_argument('--max_seq', default=128, type=int)
     parser.add_argument('--ignore_idx', default=-100, type=int)
     parser.add_argument('--sample_ratio', default=1.0, type=float, help="only for low resource.")
@@ -183,14 +182,23 @@ def main():
         model = HMNeTREModel(num_labels, tokenizer, args=args)
 
         trainer = Trainer(train_data=train_dataloader, dev_data=dev_dataloader, test_data=test_dataloader, model=model, processor=processor, args=args, logger=logger, writer=writer)
-        trainer.train()
     else:   # NER task
         label_mapping = processor.get_label_mapping()
         label_list = list(label_mapping.keys())
         model = HMNeTNERModel(label_list, args)
 
         trainer = Trainer(train_data=train_dataloader, dev_data=dev_dataloader, test_data=test_dataloader, model=model, label_map=label_mapping, args=args, logger=logger, writer=writer)
+
+    if args.do_train:
+        # train
         trainer.train()
+        # test best model
+        args.load_path = os.path.join(args.save_path, 'best_model.pth')
+        trainer.test()
+
+    if args.only_test:
+        # only do test
+        trainer.test()
 
     torch.cuda.empty_cache()
     # writer.close()
