@@ -17,33 +17,16 @@ To run the codes, you need to install the requirements:
 pip install -r requirements.txt
 ```
 
-Data Collection
-==========
-The datasets that we used in our experiments are as follows:
-
-
-+ Twitter2015 & Twitter2017
-    
-    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/1qAWrV9IaiBadICFb7mAreXy3llao_teZ/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
-
-    You can also put them anywhere and modify the path configuration in `run.py`
-
-+ MNER
-    
-    The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE) and you can download the MRE dataset with detected visual objects using folloing    
-    command:
-    ```bash
-    cd data
-    wget 120.27.214.45/Data/re/multimodal/data.tar.gz
-    tar -xzvf data.tar.gz
-    mv data RE_data
-    ```
-
-
 Data Preprocess
 ==========
-To extract visual object images, we first use the NLTK parser to extract noun phrases from the text and apply the [visual grouding toolkit](https://github.com/zyang-ur/onestage_grounding) to detect objects. The detected objects are available in our data links.
+To extract visual object images, we first use the NLTK parser to extract noun phrases from the text and apply the [visual grouding toolkit](https://github.com/zyang-ur/onestage_grounding) to detect objects. Detailed steps are as follows:
 
+1. Using the NLTK parser (or Spacy, textblob) to extract noun phrases from the text.
+2. Applying the [visual grouding toolkit](https://github.com/zyang-ur/onestage_grounding) to detect objects. Taking the twitter2015 dataset as an example, the extracted objects are stored in `twitter2015_aux_images`. The images of the object obey the following naming format: `imgname_pred_yolo_crop_num.png`, where `imgname` is the name of the raw image corresponding to the object, `num` is the number of the object predicted by the toolkit. (Note that in `train/val/test.txt`, text and raw image have a one-to-one relationship, so the `imgname` can be used as a unique identifier for the raw images)
+3. Establishing the correspondence between the raw images and the objects. We construct a dictionary to record the correspondence between the raw images and the objects. Taking `twitter2015/twitter2015_train_dict.pth` as an example, the format of the dictionary can be seen as follows: `{imgname:['imgname_pred_yolo_crop_num0.png', 'imgname_pred_yolo_crop_num1.png', ...] }`, where key is the name of raw images, value is a List of the objects.
+
+
+The detected objects and the dictionary of the correspondence between the raw images and the objects are available in our data links.
 
 The expected structure of files is:
 
@@ -56,14 +39,17 @@ HMNeT
  |    |    |    |-- train.txt
  |    |    |    |-- valid.txt
  |    |    |    |-- test.txt
- |    |    |    |-- twitter2015_train_dict.pth  # {full-image-[object-image]}
+ |    |    |    |-- twitter2015_train_dict.pth  # {imgname: [object-image]}
  |    |    |    |-- ...
- |    |    |-- twitter2015_images       # full image data
+ |    |    |-- twitter2015_images       # raw image data
  |    |    |-- twitter2015_aux_images   # object image data
  |    |    |-- twitter2017
  |    |    |-- twitter2017_images
  |    |-- RE_data
- |    |    |-- ...
+ |    |    |-- img_org          # raw image data
+ |    |    |-- img_vg           # object image data
+ |    |    |-- txt              # text data
+ |    |    |-- ours_rel2id.json # relation data
  |-- models	# models
  |    |-- bert_model.py
  |    |-- modeling_bert.py
