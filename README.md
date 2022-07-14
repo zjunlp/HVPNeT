@@ -25,15 +25,34 @@ To extract visual object images, we first use the NLTK parser to extract noun ph
 2. Applying the [visual grouding toolkit](https://github.com/zyang-ur/onestage_grounding) to detect objects. Taking the twitter2015 dataset as an example, the extracted objects are stored in `twitter2015_aux_images`. The images of the object obey the following naming format: `imgname_pred_yolo_crop_num.png`, where `imgname` is the name of the raw image corresponding to the object, `num` is the number of the object predicted by the toolkit. (Note that in `train/val/test.txt`, text and raw image have a one-to-one relationship, so the `imgname` can be used as a unique identifier for the raw images)
 3. Establishing the correspondence between the raw images and the objects. We construct a dictionary to record the correspondence between the raw images and the objects. Taking `twitter2015/twitter2015_train_dict.pth` as an example, the format of the dictionary can be seen as follows: `{imgname:['imgname_pred_yolo_crop_num0.png', 'imgname_pred_yolo_crop_num1.png', ...] }`, where key is the name of raw images, value is a List of the objects.
 
-
 The detected objects and the dictionary of the correspondence between the raw images and the objects are available in our data links.
+
+Data Download
+==========
+
++ Twitter2015 & Twitter2017
+
+    The text data follows the conll format. You can download the Twitter2015 data via this [link](https://drive.google.com/file/d/1qAWrV9IaiBadICFb7mAreXy3llao_teZ/view?usp=sharing) and download the Twitter2017 data via this [link](https://drive.google.com/file/d/1ogfbn-XEYtk9GpUECq1-IwzINnhKGJqy/view?usp=sharing). Please place them in `data/NER_data`.
+
+    You can also put them anywhere and modify the path configuration in `run.py`
+
++ MNER
+    
+    The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE), many thanks.
+
+    You can download the MRE dataset with detected visual objects using folloing command:
+    ```bash
+    cd data
+    wget 120.27.214.45/Data/re/multimodal/data.tar.gz
+    tar -xzvf data.tar.gz
+    mv data RE_data
+    ```
 
 The expected structure of files is:
 
-
 ```
 HMNeT
- |-- data	# conll2003, mit-movie, mit-restaurant and atis
+ |-- data
  |    |-- NER_data
  |    |    |-- twitter2015  # text data
  |    |    |    |-- train.txt
@@ -45,6 +64,7 @@ HMNeT
  |    |    |-- twitter2015_aux_images   # object image data
  |    |    |-- twitter2017
  |    |    |-- twitter2017_images
+ |    |    |-- twitter2017_aux_images
  |    |-- RE_data
  |    |    |-- img_org          # raw image data
  |    |    |-- img_vg           # object image data
