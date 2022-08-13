@@ -497,6 +497,7 @@ class NERTrainer(BaseTrainer):
         for name, param in self.model.named_parameters():
             if 'crf' in name or name.startswith('fc'):
                 params['params'].append(param)
+        parameters.append(params)
 
         self.optimizer = optim.AdamW(parameters)
 
