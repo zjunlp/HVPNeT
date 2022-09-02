@@ -159,7 +159,7 @@ Papers for the Project & How to Cite
 If you use or extend our work, please cite the paper as follows:
 
 ```bibtex
-@article{DBLP:journals/corr/abs-2205-03521,
+@inproceedings{DBLP:conf/naacl/ChenZLYDTHSC22,
   author    = {Xiang Chen and
                Ningyu Zhang and
                Lei Li and
@@ -169,17 +169,20 @@ If you use or extend our work, please cite the paper as follows:
                Fei Huang and
                Luo Si and
                Huajun Chen},
-  title     = {Good Visual Guidance Makes {A} Better Extractor: Hierarchical Visual
+  editor    = {Marine Carpuat and
+               Marie{-}Catherine de Marneffe and
+               Iv{\'{a}}n Vladimir Meza Ru{\'{\i}}z},
+  title     = {Good Visual Guidance Make {A} Better Extractor: Hierarchical Visual
                Prefix for Multimodal Entity and Relation Extraction},
-  journal   = {CoRR},
-  volume    = {abs/2205.03521},
+  booktitle = {Findings of the Association for Computational Linguistics: {NAACL}
+               2022, Seattle, WA, United States, July 10-15, 2022},
+  pages     = {1607--1618},
+  publisher = {Association for Computational Linguistics},
   year      = {2022},
-  url       = {https://doi.org/10.48550/arXiv.2205.03521},
-  doi       = {10.48550/arXiv.2205.03521},
-  eprinttype = {arXiv},
-  eprint    = {2205.03521},
-  timestamp = {Wed, 11 May 2022 17:29:40 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-2205-03521.bib},
+  url       = {https://doi.org/10.18653/v1/2022.findings-naacl.121},
+  doi       = {10.18653/v1/2022.findings-naacl.121},
+  timestamp = {Tue, 23 Aug 2022 08:36:33 +0200},
+  biburl    = {https://dblp.org/rec/conf/naacl/ChenZLYDTHSC22.bib},
   bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 ```
