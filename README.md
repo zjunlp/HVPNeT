@@ -96,8 +96,6 @@ bash run_twitter15.sh
 bash run_twitter17.sh
 ```
 
-checkpoints can be download via [Twitter15_ckpt](https://drive.google.com/file/d/1E6ed_V2aGAPLExYAF3C3G8j8Td0v-7BM/view?usp=sharing), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing).
-
 ## RE Task
 
 To train re model, run this script.
@@ -105,13 +103,12 @@ To train re model, run this script.
 ```shell
 bash run_re_task.sh
 ```
-checkpoints can be download via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing)
 
 Test
 ==========
 ## NER Task
 
-To test ner model, you can download the model chekpoints we provide via [Twitter15_ckpt](https://drive.google.com/file/d/1E6ed_V2aGAPLExYAF3C3G8j8Td0v-7BM/view?usp=sharing), [Twitter17_ckpt](https://drive.google.com/file/d/1sgsjx_JVMYfu-_95e_3hB8tTR-NUiD27/view?usp=sharing) or use your own tained model and set `load_path` to the model path, then run following script:
+To test ner model, you can use the tained model and set `load_path` to the model path, then run following script:
 
 ```shell
 python -u run.py \
@@ -129,7 +126,7 @@ python -u run.py \
 
 ## RE Task
 
-To test re model, you can download the model chekpoints we provide via [re_ckpt](https://drive.google.com/file/d/1x-yPYy8pjhsDzhhLLzLzEjyVFeQ063HM/view?usp=sharing) or use your own tained model and set `load_path` to the model path, then run following script:
+To test re model, you can use the tained model and set `load_path` to the model path, then run following script:
 
 ```shell
 python -u run.py \
