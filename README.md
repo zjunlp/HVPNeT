@@ -40,7 +40,7 @@ Data Download
     
     The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE), many thanks.
 
-    You can download the MRE dataset with detected visual objects via this [link](https://drive.google.com/file/d/1Jv6peX4fWkz33fWRC4WC3Wl9RNyHX6aC/view?usp=sharing) or use the folloing commands:
+    You can download the MRE dataset with detected visual objects from [Google Drive](https://drive.google.com/file/d/1q5_5vnHJ8Hik1iLA9f5-6nstcvvntLrS/view?usp=sharing) or use the folloing commands:
     ```bash
     cd data
     wget 120.27.214.45/Data/re/multimodal/data.tar.gz
