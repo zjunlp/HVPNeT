@@ -36,9 +36,9 @@ Data Download
 
     You can also put them anywhere and modify the path configuration in `run.py`
 
-+ MNER
++ MNRE
     
-    The MRE dataset comes from [MEGA](https://github.com/thecharm/MNRE), many thanks.
+    The MNRE dataset comes from [MEGA](https://github.com/thecharm/MNRE), many thanks.
 
     You can download the MRE dataset with detected visual objects from [Google Drive](https://drive.google.com/file/d/1q5_5vnHJ8Hik1iLA9f5-6nstcvvntLrS/view?usp=sharing) or use the following commands:
     ```bash
