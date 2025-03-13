@@ -121,7 +121,7 @@ class RETrainer(BaseTrainer):
                 if self.writer:
                     self.writer.add_scalar(tag='dev_acc', scalar_value=acc, global_step=epoch)    # tensorbordx
                     self.writer.add_scalar(tag='dev_f1', scalar_value=micro_f1, global_step=epoch)    # tensorbordx
-                    self.writer.add_scalar(tag='dev_loss', scalar_value=total_loss/len(self.test_data), global_step=epoch)    # tensorbordx
+                    self.writer.add_scalar(tag='dev_loss', scalar_value=total_loss/len(self.dev_data), global_step=epoch)    # tensorbordx
 
                 self.logger.info("Epoch {}/{}, best dev f1: {}, best epoch: {}, current dev f1 score: {}, acc: {}."\
                             .format(epoch, self.args.num_epochs, self.best_dev_metric, self.best_dev_epoch, micro_f1, acc))
